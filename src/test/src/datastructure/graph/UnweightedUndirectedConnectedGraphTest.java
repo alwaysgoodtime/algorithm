@@ -1,9 +1,9 @@
-package test.src.datastructure;
+package test.src.datastructure.graph;
 
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-import src.datastructure.Graph;
+import src.datastructure.graph.UnweightedUndirectedConnectedGraph;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @since <pre>2月 6, 2020</pre>
  */
-public class GraphTest {
+public class UnweightedUndirectedConnectedGraphTest {
 
     @Before
     public void before() throws Exception {
@@ -66,14 +66,14 @@ public class GraphTest {
         for (int i = 0; i < 5; i++) {
             vertices.add("a"+i);
         }
-        Graph graph = new Graph(5);
-        graph.setVertices(vertices);
-        graph.insertEdge(0, 1);
-        graph.insertEdge(2, 4);
-        graph.insertEdge(1, 0);
-        graph.insertEdge(1, 2);
-        graph.insertEdge(1, 4);
-        int dfs = graph.dfs(2);
+        UnweightedUndirectedConnectedGraph unweightedUndirectedConnectedGraph = new UnweightedUndirectedConnectedGraph(5);
+        unweightedUndirectedConnectedGraph.setVertices(vertices);
+        unweightedUndirectedConnectedGraph.insertEdge(0, 1);
+        unweightedUndirectedConnectedGraph.insertEdge(2, 4);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 0);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 2);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 4);
+        int dfs = unweightedUndirectedConnectedGraph.dfs(2);
         System.out.println(dfs);
     }
 
@@ -87,14 +87,14 @@ public class GraphTest {
         for (int i = 0; i < 5; i++) {
             vertices.add("a"+i);
         }
-        Graph graph = new Graph(5);
-        graph.setVertices(vertices);
-        graph.insertEdge(0, 1);
-        graph.insertEdge(0, 2);
-        graph.insertEdge(1, 2);
-        graph.insertEdge(1, 3);
-        graph.insertEdge(1, 4);
-        int bfs = graph.bfs(0);
+        UnweightedUndirectedConnectedGraph unweightedUndirectedConnectedGraph = new UnweightedUndirectedConnectedGraph(5);
+        unweightedUndirectedConnectedGraph.setVertices(vertices);
+        unweightedUndirectedConnectedGraph.insertEdge(0, 1);
+        unweightedUndirectedConnectedGraph.insertEdge(0, 2);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 2);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 3);
+        unweightedUndirectedConnectedGraph.insertEdge(1, 4);
+        int bfs = unweightedUndirectedConnectedGraph.bfs(0);
         System.out.println(bfs);
     }
 

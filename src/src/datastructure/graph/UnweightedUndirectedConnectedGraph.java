@@ -1,6 +1,4 @@
-package src.datastructure;
-
-import javax.security.auth.login.AccountException;
+package src.datastructure.graph;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +11,8 @@ import java.util.ArrayList;
  * @author goodtime
  * @create 2020-02-06 7:46 下午
  */
-public class Graph {
+public class UnweightedUndirectedConnectedGraph {
+
     private ArrayList<String> vertices = new ArrayList();
     private int[][] edges;
     private int edgesNum;
@@ -21,17 +20,16 @@ public class Graph {
     int count = 0;//方便调试
     int queueCount = 0;//广度优先遍历中队列的计数器
 
-    public Graph(int n) {//n为顶点的个数
+    public UnweightedUndirectedConnectedGraph(int n) {//构造器，n为顶点的个数
         this.edges = new int[n][n];
         isVisited = new boolean[n];
     }
 
-    public Graph() {
+    public UnweightedUndirectedConnectedGraph() {
         this(5);//默认构造一个五个顶点的图
     }
 
-
-    public void insertEdge(int v1, int v2) {
+    public void insertEdge(int v1, int v2) {//单个插入边，因为是无向连通图，所以两个方向的领接矩阵都变为1
         //未做输入数据校验
         edges[v1][v2] = 1;
         edges[v2][v1] = 1;
@@ -135,14 +133,26 @@ public class Graph {
                     break;
                 }
             }
-            if (currentVertex == currentlevel) {//精髓所在，如果当前层的下标被顶点的下标追上，就重置到下一层的顶点下标末尾
-                if(currentlevel < queueCount){
-                    currentlevel = queueCount;
-                }else {//说明这一层已经全部遍历完，没有下一层了，退出循环
-                    break;
-                }
+//            if (currentVertex == currentlevel) {//精髓所在，如果当前层的下标被顶点的下标追上，就重置到下一层的顶点下标末尾
+//                if(currentlevel < queueCount){
+//                    currentlevel = queueCount;
+//                }else {//说明这一层已经全部遍历完，没有下一层了，退出循环
+//                    break;
+//                }
+//            }//这个if可以看到广度遍历的深度，但其实没必要这么写。把这个if的代码记为"看层深度"
+//            //可以代替"看层深度"的代码
+
+            if(currentVertex == queueCount){
+                break;
             }
+
             currentVertex++;
+
+
+
+
+
+
         }
         return count;//纯为测试用，可以不返回这个值
     }

@@ -31,7 +31,7 @@ public void after() throws Exception {
 public void testSearch() throws Exception { 
 //TODO: Test goes here...
     int[] a = {1,2,3,5,6,7,7,7,7,8};
-    int search = BinarySearch.search(a, 7);
+    int search = BinarySearch.recursionSearch(a, 1);
     System.out.println(search);
 } 
 
